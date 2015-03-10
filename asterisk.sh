@@ -1,13 +1,12 @@
 #!/bin/sh
 echo "Script d'installation du serveur Asterisk"
 echo "Mettre a jour ?"
-select opinion in Oui Non
+
+select choix in Oui Non
 do case $choix in 
-"Oui"|"Non") break;;
-"*") continue;;
+# Laisser passer ceux qui répondent correctement à la question
+"Oui") apt-get update;;
+"Non") break;;
 esac        
 done
 
-if $choix == "Oui"
-else apt-get update
-fi
